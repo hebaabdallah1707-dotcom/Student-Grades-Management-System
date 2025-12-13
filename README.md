@@ -11,8 +11,8 @@ This project is implemented as an academic system to demonstrate clean design pr
 
 ## System Features
 
-- Manage student records and grades
-- Perform CRUD operations (Create, Read, Update, Delete)
+- Manage student records and grades  
+- Perform CRUD operations (Create, Read, Update, Delete)  
 - Calculate statistical metrics:
   - Average grade
   - Highest average
@@ -24,6 +24,15 @@ This project is implemented as an academic system to demonstrate clean design pr
 ## Roles and Permissions
 
 - **Admin**
+  - Add student records
+  - Update student grades
+  - Delete student records
+  - Save data to JSON files
+
+- **Viewer**
+  - View student records and grades only
+  - No permission to add, update, delete, or save data
+
 ## Documentation
 
 Detailed project documentation is available here:  
