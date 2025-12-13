@@ -11,6 +11,7 @@ open Json
 
 let mutable students = []
 let mutable role = Admin
+let mutable mode = 0
 
 [<EntryPoint>]
 [<STAThread>]
@@ -204,7 +205,7 @@ let main argv =
                     "students.json"
                 else
                     textBoxFile.Text + ".json"
-            match Json.save role students fileName with
+            match Json.save mode role students fileName with
             | Ok () -> 
                     MessageBox.Show("Data saved successfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information) |> ignore
                     refreshFiles ()
@@ -222,6 +223,7 @@ let main argv =
             | Ok loadedStudents ->
                 students <- loadedStudents
                 refreshGrid()
+                mode <- 1
                 MessageBox.Show("Data loaded successfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information) |> ignore
             | Error msg ->
                 MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error) |> ignore
