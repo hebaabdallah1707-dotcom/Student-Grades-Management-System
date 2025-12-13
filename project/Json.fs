@@ -9,18 +9,23 @@ open Roles
 // Persistence Developer – JSON read/write
 // https://compile7.org/serialize-and-deserialize/how-to-serialize-and-deserialize-json-in-f/
 
-let save(role:Role) (students: Student list) fileName : Result<unit, string> =
+let save (mode:int) (role:Role) (students: Student list) (fileName:string) : Result<unit, string> =
     if Roles.checkRole role then
-        if File.Exists("data/" + fileName) |> not then
+        if mode = 0 then
+            if File.Exists("data/" + fileName) |> not then
+                let option = JsonSerializerOptions(WriteIndented = true)
+                let json = JsonSerializer.Serialize(students, option)
+                File.WriteAllText("data/" + fileName, json)
+                Ok ()
+            else
+                Error "File already exist"
+        else 
             let option = JsonSerializerOptions(WriteIndented = true)
             let json = JsonSerializer.Serialize(students, option)
             File.WriteAllText("data/" + fileName, json)
             Ok ()
-        else
-            Error "File already exist"
     else
         Error "You don't have permission"
-
 let load (fileName) : Result<Student list, string> = 
     if File.Exists("data/" + fileName) then
         try 
