@@ -36,7 +36,7 @@ This project is implemented as an academic system to demonstrate clean design pr
 ## Documentation
 
 Detailed project documentation is available here:  
-[Project Documentation](./docs/DocForPI3.docx)
+[Project Documentation](docs/Documentation.docx)
 
 ## Technologies Used
 
