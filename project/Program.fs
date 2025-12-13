@@ -214,10 +214,10 @@ let main argv =
 
     buttonLoad.Click.Add(fun _ ->
         let fileName = 
-            if String.IsNullOrWhiteSpace(textBoxFile.Text) then
+            if String.IsNullOrWhiteSpace(files.Text) then
                 "students.json"
             else
-                textBoxFile.Text + ".json"
+                files.Text + ".json"
         if List.isEmpty students  then
             match Json.load fileName with
             | Ok loadedStudents ->
@@ -265,4 +265,5 @@ let main argv =
     // form.Controls.Add(labelId)
 
     Application.Run(form)
+
     0 
