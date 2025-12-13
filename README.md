@@ -38,7 +38,6 @@ This project is implemented as an academic system to demonstrate clean design pr
 Detailed project documentation is available here:  
 [Project Documentation](./docs/DocForPI3.docx)
 
-
 ## Technologies Used
 
 - F# (.NET)
